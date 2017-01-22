@@ -3,14 +3,15 @@
 <head>
  <meta charset="UTF-8">
  <title>READ JSON Example (getJSON)</title>
- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+ <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
  <script type="text/javascript">
  $(document).ready(function() {
  //$.getJSON("http://phonegappro.esy.es/test/json.php",function(result){
- $.getJSON("https://hasangad.com/wp-json/wp/v2/posts/1820",function(result){
+ $.getJSON("http://hasangad.com/wp-json/wp/v2/posts/1820",function(result){
  $.each(result, function(i, field){
  //$("#output").append("Title: "+ field.title + " duration: "+field.duration +" Price:"+field.price+"<br/>");
  $("#output").append("<td>"+ field[i].id + "</td><td>"+field[i].title +"</td><td>"+field[i].type +"</td>");
+ $("#output").append("<td>"+ field.id + "</td><td>"+field.title +"</td><td>"+field.type +"</td>");
  });
  });
  });
