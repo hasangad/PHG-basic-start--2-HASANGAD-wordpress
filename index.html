@@ -6,16 +6,23 @@
  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
  <script type="text/javascript">
  $(document).ready(function() {
- $.getJSON("http://phonegappro.esy.es/test/json.php",function(result){
+ //$.getJSON("http://phonegappro.esy.es/test/json.php",function(result){
+ $.getJSON("https://hasangad.com/wp-json/wp/v2/posts/1820",function(result){
  $.each(result, function(i, field){
- $("#output").append("Title: "+ field.title + " duration: "+field.duration +" Price:"+field.price+"<br/>");
+ //$("#output").append("Title: "+ field.title + " duration: "+field.duration +" Price:"+field.price+"<br/>");
+ $("#output").append("<td>"+ field.id + "</td><td>"+field.title +"</td><td>"+field.type +"</td>");
  });
  });
  });
  </script>
+ <style>table, th, td {
+   border: 1px solid black;
+}</style>
 </head>
 <body>
 <h1>HasanGad.com Blog</h1>
- <div id="output"></div>
+ <table id="output">
+ <tr><td>ID</td><td>Title</td><td>Type</td></tr>
+ </table>
 </body>
 </html>
