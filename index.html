@@ -28,16 +28,12 @@
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
         <link rel="stylesheet" type="text/css" href="css/index.css" />
         <title>HasanGad.com Blog</title>
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     </head>
     <body>
-    <script type="text/javascript">
+   <!-- <script type="text/javascript">
 $(document).ready(function()
  {
-	 
-	 //alert("Jquery Test");
-	 
-   var url="http://hasangad.com/wp-json/wp/v2/posts/1820";
+   var url="http://hasangad.com/p-json/wp/v2/posts/1820";
    $.getJSON(url,function(result){
     $.each(result.posts, function(i, field){
        var title=field.title;
@@ -46,7 +42,48 @@ $(document).ready(function()
    });
  });
 </script>
-<ul id="listview"></ul>
+<ul id="listview"></ul>-->
+
+
+
+<!-- When in Phonegap folder uncomment this
+    <script type="text/javascript" src="phonegap.js"></script>  -->
+    <script type="text/javascript" charset="utf-8" src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+      <script>
+          var app = {
+
+	init: function() {
+		app.getPosts();
+	},
+
+	getPosts: function() {
+
+		var rootURL = 'http://hasangad.com/wp-json/wp/v2/posts/1820';
+
+		$.ajax({
+			type: 'GET',
+			url: rootURL,
+			dataType: 'json',
+			success: function(data){
+				
+				$.each(data, function(index, value) {
+					console.log(value.featured_image);
+			      $('ul.topcoat-list').append('<li class="topcoat-list__item">' +
+			      	//'<img src="'+value.featured_image.attachment_meta.sizes.medium.url+'" /><br>' +
+			      	'<h3>'+value.title+'</h3>' +
+			      	'<p>'+value.excerpt+'</p></li>');
+			    });
+			},
+			error: function(error){
+				console.log(error);
+			}
+
+		});
+
+	}
+
+}
+      </script>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript">
