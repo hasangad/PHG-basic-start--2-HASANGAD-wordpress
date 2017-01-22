@@ -3,18 +3,59 @@
 <head>
  <meta charset="UTF-8">
  <title>READ JSON Example (getJSON)</title>
- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+ <base href="http://msyserp.com/">
+ <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
  <script type="text/javascript">
- $(document).ready(function() {
+ //https://phonegappro.com/tutorials/how-to-parse-read-json-using-phonegap-apache-cordova/
+ //https://phonegappro.com/tutorials/build-mobile-apps-with-wordpress-using-phonegap-part-1/
+ 
+ /*.htaccess ----------------------------------
+ 
+ <IfModule mod_headers.c>
+  <FilesMatch "\.(ttf|ttc|otf|eot|woff|woff2|font.css|css|js)$">
+    Header set Access-Control-Allow-Origin "*"
+  </FilesMatch>
+</IfModule>
+ 
+ */
+ 
+ $(document).ready(function() { alert("Alert Test");
  //$.getJSON("http://phonegappro.esy.es/test/json.php",function(result){
- $.getJSON("https://hasangad.com/wp-json/wp/v2/posts/1820",function(result){
+ //$.getJSON("https://hasangad.com/wp-json/wp/v2/posts/1820",function(result){ 
+ $.getJSON("http://msyserp.com/api/?p=47&json=1",function(result){ 
+ //$.getJSON("http://msyserp.com/web-service-api/?id=1&admin=mallam",function(result){ 
+ //alert("In Json");
+ $.each(result, function(i , field){
+	  //alert("Alert each");
+ //$("#output").append("Title: "+ field.title + " duration: "+field.duration +" Price:"+field.price+"<br/>");
+ //$("#output").append("<td>"+ field[i].id + "</td><td>"+field[i].title +"</td><td>"+field[i].type +"</td>");
+ //$("#output").append("<td>"+ field.clientname + "</td><td>"+field.title +"</td><td>"+field.type +"</td>");
+ $("#output").append("<tr><td>"+ field.id + "</td><td>"+ field.title + "</td></tr>");
+ });
+ });
+ /*$.ajax({
+ type: "GET",
+ url: "http://msyserp.com/web-service-api/?view_all=table&&admin=mallam",
+ crossDomain: true,
+ cache: false,
+ success: function(result){
+ var result=$.parseJSON(result);
  $.each(result, function(i, field){
  //$("#output").append("Title: "+ field.title + " duration: "+field.duration +" Price:"+field.price+"<br/>");
- $("#output").append("<td>"+ field[i].id + "</td><td>"+field[i].title +"</td><td>"+field[i].type +"</td>");
- //$("#output").append("<td>"+ field.id + "</td><td>"+field.title +"</td><td>"+field.type +"</td>");
- alert("Alert Test");
+  $("#output").append("<td>"+ field.id + "</td><td>"+field.title +"</td><td>"+field.type +"</td>");
+
  });
+ }
+ });*/
  });
+ $(document).ready(function() {
+   var url="http://msyserp.com/?json=get_recent_posts";
+   $.getJSON(url,function(result){
+    $.each(result.posts, function(i, field){
+       var id=field.id;
+       $("#listview").append("<tr><td><h2>"+id+"<h2></td><td>"+field.title+"</td><td>"+field.type+"</td><tr>");
+    });
+   });
  });
  </script>
  <style>table, th, td {
@@ -26,5 +67,11 @@
  <table id="output">
  <tr><td>ID</td><td>Title</td><td>Type</td></tr>
  </table>
+ 
+  <table id="listview">
+ <tr><td>ID</td><td>Title</td><td>Type</td></tr>
+ </table>
+ 
+
 </body>
 </html>
