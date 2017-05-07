@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>مدد السعودية لتأجير السيارات</title>
+<!--<base href="http://madadrental.com/">-->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+ //https://phonegappro.com/tutorials/how-to-parse-read-json-using-phonegap-apache-cordova/
+ //https://phonegappro.com/tutorials/build-mobile-apps-with-wordpress-using-phonegap-part-1/
+ 
+ /*.htaccess ----------------------------------
+ 
+ <IfModule mod_headers.c>
+  <FilesMatch "\.(ttf|ttc|otf|eot|woff|woff2|font.css|css|js)$">
+    Header set Access-Control-Allow-Origin "*"
+  </FilesMatch>
+</IfModule>
+ 
+ */
+ 
+ $(document).ready(function() { 
+ $.getJSON("http://msyserp.com/api/?p=47&json=1",function(result){ 
+ $.each(result, function(i , field){
+ $("#output").append("<tr><td>"+ field.id + "</td><td>"+ field.title + "</td></tr>");
+ });
+ });
+ /*$.ajax({
+ type: "GET",
+ url: "http://msyserp.com/web-service-api/?view_all=table&&admin=mallam",
+ crossDomain: true,
+ cache: false,
+ success: function(result){
+ var result=$.parseJSON(result);
+ $.each(result, function(i, field){
+ //$("#output").append("Title: "+ field.title + " duration: "+field.duration +" Price:"+field.price+"<br/>");
+  $("#output").append("<td>"+ field.id + "</td><td>"+field.title +"</td><td>"+field.type +"</td>");
+
+ });
+ }
+ });*/
+ });
+ $(document).ready(function() {
+   /*var url="http://msyserp.com/?json=get_recent_posts";
+   $.getJSON(url,function(result){
+    $.each(result.posts, function(i, field){
+       var id=field.id;
+       $("#listview").append("<tr><td><h2>"+id+"<h2></td><td>"+field.title+"</td><td>"+field.type+"</td><tr>");
+    });
+   });*/
+  
+   
+ });
+ 
+ function toggle_sidebar()
+        {
+			
+            var sidebar = document.getElementById("sidebar");
+            
+            console.log(sidebar.style.left);
+            
+            if(sidebar.style.right == "-35%")
+            {
+                sidebar.style.right = "0%";
+            }
+            else
+            {
+                sidebar.style.right = "-35%";
+            }
+        }
+ </script>
+<link rel='stylesheet' id='bootstrap.min-css'  href='bs/css/bootstrap.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap.min-css-rtl'  href='bs/css/bootstrap-rtl.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap.min-css-controllers'  href='bs/css/controllers.css' type='text/css' media='all' />
+<link rel='stylesheet' id='css-style'  href='css/style.css' type='text/css' media='all' />
+</head>
+<body>
+
+  <img class="toggle" src="images/icon-mobile.png" onclick="toggle_sidebar()" style="position: fixed; left: 10px; top: 10px" />
+        
+<div id="sidebar" style="position: fixed; display: inline-block; top: 0px; height: 100%; width: 35%; right: -35%; transition: all 0.5s ease-in-out;">
+<ul class="container no-padding">
+		<li><a href="index.html">الرئيسية</a></li>
+	<li><a href="about.html">عن مدد السعودية</a></li>
+	<li><a href="cars.html">السيارات</a></li>
+	<!--<li><a href="reserve.html">حجز</a></li>
+	<li><a href="contact.html">التواصل</a></li>-->
+</ul>
+</div>
+
+<a href="index.html" class="container-fluid no-padding"><img src="images/logo-2.jpg" alt="" title="" width="567" height="256" class="logo"></a>
+
+<div class="madad_body container"> 
+
+  <form id="formElem" name="formElem" action="" method="post">
+
+        <div class="col-xs-12">
+        
+        <label class="col-xs-3"> مكان الحجز</label>
+  
+          <select name="pickup_location_id" id="pickup_location_id" class="home-select form-control col-xs-9" required>
+            <option value="" selected="selected">مدينة / المكان:</option>
+            <option value="12">الدمام 1 - حى الاتصالات - شارع الامير نايف محل 6</option>
+            <option value="13">الدمام 2</option>
+            <option value="1">الرياض - حى الروضة - شارع ابن الهيثم</option>
+            <option value="20">الرياض - حى السويدى - الطريق الدائرى</option>
+            <option value="5">الرياض - فرع السلي - شارع شبه الجزيرة</option>
+            <option value="6">الرياض - فرع العزيزية - شارع العزيزية العام</option>
+            <option value="2">الرياض - فرع المربع - شارع الامير فيصل ابن تركى</option>
+            <option value="7">الرياض - فرع النسيم1 - شارع ابى الاسود الدؤلى</option>
+            <option value="8">الرياض - فرع النسيم2 - شارع ابى الاسود الدؤلى</option>
+            <option value="4">الرياض - فرع اليرموك - شارع الامام سعود</option>
+            <option value="9">الرياض - فرع خالد ابن الوليد</option>
+            <option value="3">الرياض -فرع الشفا - شارع الامام مالك</option>
+            <option value="10">جده 1 - شارع فلسطين</option>
+            <option value="11">جده 2 - شارع صارى</option>
+            <option value="14">جده 3 - حى الروضة</option>
+            <option value="15">جده 4 - شارع فلسطين</option>
+          </select>
+          </div>
+          
+           
+           <div class="hr"></div> 
+
+
+        <div class="col-xs-12">
+                <label class="col-xs-3">التاريخ</label>
+          <input id="pickup_date" name="pickup_date" type="date" value="التاريخ" class="form-control col-xs-9" required>
+        </div>
+                   <div class="hr"></div> 
+
+          <div class="col-xs-12">
+                <label class="col-xs-3">الوقت</label>
+                          <input id="pickup_date" name="pickup_date" type="time" value="" class="form-control col-xs-9" required>
+
+          <!--<select id="pickup_time" name="pickup_time" class="form-control  col-xs-9">
+            <option value="00:00:00">12:00 ص</option>
+            <option value="00:30:00">12:30 ص</option>
+            <option value="01:00:00">1:00 ص</option>
+            <option value="01:30:00">1:30 ص</option>
+            <option value="02:00:00">2:00 ص</option>
+            <option value="02:30:00">2:30 ص</option>
+            <option value="03:00:00">3:00 ص</option>
+            <option value="03:30:00">3:30 ص</option>
+            <option value="04:00:00">4:00 ص</option>
+            <option value="04:30:00">4:30 ص</option>
+            <option value="05:00:00">5:00 ص</option>
+            <option value="05:30:00">5:30 ص</option>
+            <option value="06:00:00">6:00 ص</option>
+            <option value="06:30:00">6:30 ص</option>
+            <option value="07:00:00">7:00 ص</option>
+            <option value="07:30:00">7:30 ص</option>
+            <option value="08:00:00">8:00 ص</option>
+            <option value="08:30:00">8:30 ص</option>
+            <option value="09:00:00" selected="selected">9:00 ص</option>
+            <option value="09:30:00">9:30 ص</option>
+            <option value="10:00:00">10:00 ص</option>
+            <option value="10:30:00">10:30 ص</option>
+            <option value="11:00:00">11:00 ص</option>
+            <option value="11:30:00">11:30 ص</option>
+            <option value="12:00:00">12:00 م</option>
+            <option value="12:30:00">12:30 م</option>
+            <option value="13:00:00">1:00 م</option>
+            <option value="13:30:00">1:30 م</option>
+            <option value="14:00:00">2:00 م</option>
+            <option value="14:30:00">2:30 م</option>
+            <option value="15:00:00">3:00 م</option>
+            <option value="15:30:00">3:30 م</option>
+            <option value="16:00:00">4:00 م</option>
+            <option value="16:30:00">4:30 م</option>
+            <option value="17:00:00">5:00 م</option>
+            <option value="17:30:00">5:30 م</option>
+            <option value="18:00:00">6:00 م</option>
+            <option value="18:30:00">6:30 م</option>
+            <option value="19:00:00">7:00 م</option>
+            <option value="19:30:00">7:30 م</option>
+            <option value="20:00:00">8:00 م</option>
+            <option value="20:30:00">8:30 م</option>
+            <option value="21:00:00">9:00 م</option>
+            <option value="21:30:00">9:30 م</option>
+            <option value="22:00:00">10:00 م</option>
+            <option value="22:30:00">10:30 م</option>
+            <option value="23:00:00">11:00 م</option>
+            <option value="23:30:00">11:30 م</option>
+          </select>-->
+        </div>
+        
+                   <div class="hr"></div> 
+
+       <!-- <div class="top-padded">
+          <input id="booking_code" value="لدي رقم الحجز:" type="text" name="booking_code" onfocus="if(this.value == 'لدي رقم الحجز:') {this.value=''}" onblur="if(this.value == ''){this.value ='لدي رقم الحجز:'}">
+        </div>-->
+     
+    <div class="col-xs-12">
+        
+        <label class="col-xs-3"> مكان التسليم </label>
+       
+          <select name="dropoff_location_id" id="dropoff_location_id" class="home-select form-control col-xs-9" required>
+            <option value="" selected="selected">مدينة / المكان:</option>
+            <option value="12">الدمام 1 - حى الاتصالات - شارع الامير نايف محل 6</option>
+            <option value="13">الدمام 2</option>
+            <option value="1">الرياض - حى الروضة - شارع ابن الهيثم</option>
+            <option value="20">الرياض - حى السويدى - الطريق الدائرى</option>
+            <option value="5">الرياض - فرع السلي - شارع شبه الجزيرة</option>
+            <option value="6">الرياض - فرع العزيزية - شارع العزيزية العام</option>
+            <option value="2">الرياض - فرع المربع - شارع الامير فيصل ابن تركى</option>
+            <option value="7">الرياض - فرع النسيم1 - شارع ابى الاسود الدؤلى</option>
+            <option value="8">الرياض - فرع النسيم2 - شارع ابى الاسود الدؤلى</option>
+            <option value="4">الرياض - فرع اليرموك - شارع الامام سعود</option>
+            <option value="9">الرياض - فرع خالد ابن الوليد</option>
+            <option value="3">الرياض -فرع الشفا - شارع الامام مالك</option>
+            <option value="10">جده 1 - شارع فلسطين</option>
+            <option value="11">جده 2 - شارع صارى</option>
+            <option value="14">جده 3 - حى الروضة</option>
+            <option value="15">جده 4 - شارع فلسطين</option>
+          </select>
+        </div>
+        
+                   <div class="hr"></div> 
+
+        
+        
+          <div class="col-xs-12">
+                <label class="col-xs-3">التاريخ</label>
+          <input id="pickup_date" name="pickup_date" type="date" value="التاريخ" class="form-control col-xs-9" required>
+        </div>
+                   <div class="hr"></div> 
+
+          <div class="col-xs-12">
+                <label class="col-xs-3">الوقت</label>
+                          <input id="pickup_date" name="pickup_date" type="time" value="" class="form-control col-xs-9" required>
+                          
+                          </div>
+        
+                   <div class="hr"></div> 
+
+     
+      <div class="col-xs-12">
+     <label class="col-xs-3"> <strong>نوع السيارة</strong> </label>
+     </div>
+     
+                <div class="hr"></div> 
+
+       
+        <input type="hidden" name="nrs_came_from_step1" value="yes" class="form-control col-xs-9">
+       <div class="col-xs-12">
+                <label class="col-xs-3">الدرجة</label>
+          <select name="body_type_id" id="body_type_id" class="form-control col-xs-9" required>
+            <option value="0" selected="selected">الدرجة:</option>
+            <option value="1">سيدان / متوسطة</option>
+            <option value="2">سيدان / فئات</option>
+            <option value="3">فان SUV</option>
+          </select>
+        </div>
+        
+                   <div class="hr"></div> 
+
+         <div class="col-xs-12">
+                <label class="col-xs-3">نوع الوقود </label>
+          <select name="fuel_type_id" id="fuel_type_id" class="form-control  col-xs-9" required>
+            <option value="0" selected="selected"> -- </option>
+            <option value="1">بنزين 91</option>
+            <option value="2">بنزين 95</option>
+          </select>
+        </div>
+        
+                   <div class="hr"></div> 
+
+       
+      </div>
+    </div>
+  <input id="nrs_do_search" type="submit" name="nrs_do_search" value="بحث" class="btn btn-success col-xs-12 no-padding">
+
+  </form>
+</div>
+<!-- End of madad body -->
+
+</body>
+</html>

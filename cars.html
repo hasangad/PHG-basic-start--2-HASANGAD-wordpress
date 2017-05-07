@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>مدد السعودية لتأجير السيارات</title>
+<!--<base href="http://madadrental.com/">-->
+<!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>-->
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript">
+ //https://phonegappro.com/tutorials/how-to-parse-read-json-using-phonegap-apache-cordova/
+ //https://phonegappro.com/tutorials/build-mobile-apps-with-wordpress-using-phonegap-part-1/
+ 
+ /*.htaccess ----------------------------------
+ 
+ <IfModule mod_headers.c>
+  <FilesMatch "\.(ttf|ttc|otf|eot|woff|woff2|font.css|css|js)$">
+    Header set Access-Control-Allow-Origin "*"
+  </FilesMatch>
+</IfModule>
+ 
+ */
+ 
+ $(document).ready(function() { 
+ $.getJSON("http://msyserp.com/api/?p=47&json=1",function(result){ 
+ $.each(result, function(i , field){
+ $("#output").append("<tr><td>"+ field.id + "</td><td>"+ field.title + "</td></tr>");
+ });
+ });
+ /*$.ajax({
+ type: "GET",
+ url: "http://msyserp.com/web-service-api/?view_all=table&&admin=mallam",
+ crossDomain: true,
+ cache: false,
+ success: function(result){
+ var result=$.parseJSON(result);
+ $.each(result, function(i, field){
+ //$("#output").append("Title: "+ field.title + " duration: "+field.duration +" Price:"+field.price+"<br/>");
+  $("#output").append("<td>"+ field.id + "</td><td>"+field.title +"</td><td>"+field.type +"</td>");
+
+ });
+ }
+ });*/
+ });
+ $(document).ready(function() {
+   /*var url="http://msyserp.com/?json=get_recent_posts";
+   $.getJSON(url,function(result){
+    $.each(result.posts, function(i, field){
+       var id=field.id;
+       $("#listview").append("<tr><td><h2>"+id+"<h2></td><td>"+field.title+"</td><td>"+field.type+"</td><tr>");
+    });
+   });*/
+  
+   
+ });
+ 
+ function toggle_sidebar()
+        {
+			
+            var sidebar = document.getElementById("sidebar");
+            
+            console.log(sidebar.style.left);
+            
+            if(sidebar.style.right == "-35%")
+            {
+                sidebar.style.right = "0%";
+            }
+            else
+            {
+                sidebar.style.right = "-35%";
+            }
+        }
+ </script>
+<link rel='stylesheet' id='bootstrap.min-css'  href='bs/css/bootstrap.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap.min-css-rtl'  href='bs/css/bootstrap-rtl.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap.min-css-controllers'  href='bs/css/controllers.css' type='text/css' media='all' />
+<link rel='stylesheet' id='css-style'  href='css/style.css' type='text/css' media='all' />
+</head>
+<body>
+
+  <img class="toggle" src="images/icon-mobile.png" onclick="toggle_sidebar()" style="position: fixed; left: 10px; top: 10px" />
+        
+<div id="sidebar" style="position: fixed; display: inline-block; top: 0px; height: 100%; width: 35%; right: -35%; transition: all 0.5s ease-in-out;">
+<ul class="container no-padding">
+	<li><a href="index.html">الرئيسية</a></li>
+	<li><a href="about.html">عن مدد السعودية</a></li>
+	<li><a href="cars.html">السيارات</a></li>
+	<!--<li><a href="reserve.html">حجز</a></li>-->
+	<li><a href="contact.html">التواصل</a></li>
+</ul>
+</div>
+
+<a href="index.html" class="container-fluid no-padding"><img src="images/logo-2.jpg" alt="" title="" width="567" height="256" class="logo"></a>
+
+<div class="madad_body container"> 
+
+<div class="hr"></div>
+
+<h4>السيارات</h4>
+<div class="hr"></div>
+<!--<SCRIPT LANGUAGE="JavaScript">
+function testResults (form) {
+    var TestVar = form.inputbox.value;
+    alert ("You typed: " + TestVar);
+}
+</SCRIPT>
+<FORM NAME="myform" ACTION="" METHOD="GET">Enter something in the box: <BR>
+<INPUT TYPE="text" NAME="inputbox" VALUE=""><P>
+<INPUT TYPE="button" NAME="button" Value="Click" onClick="testResults(this.form)">
+</FORM>-->
+
+
+<script>
+/*function myFunction(form) {
+	
+	
+	var TestVar = form.car_id.value;
+    alert ("You typed: " + TestVar);
+			
+   
+}*/
+</script>
+
+<form id="frm7" method="GET" action="send_reserv.html" class="col-xs-12 car-item">
+<!--<form id="frm777" method="GET" action="send_reserv.html" class="col-xs-12 car-item">-->
+
+<img src="images/cars/sonata-2017.png" class="col-xs-12" >
+
+<div class="col-xs-8">
+
+<h3>هيونداي سوناتا 2017</h3>
+
+<ul>
+	<li>نوع الوقود: بنزين 91</li>
+	<li>الدرجة: سيدان / فئات</li>
+	<li>الأسعار من: 180.00 ريال / يوم</li>
+	<li> الناقل: أوتوماتيك</li>
+	<li>الكيلومترات: 200km</li>
+	<li>رصيد تأميني: 0.00 ريال</li>
+
+</ul>
+
+</div>
+
+<div class="col-xs-4">
+<div class="hr"></div>
+<div class="hr"></div>
+<div class="hr"></div>
+<div class="hr"></div>
+<div class="hr"></div>
+<div class="hr"></div>
+
+<!--<input type="text" name="car_data" class="car_data" value="">-->
+<input type="hidden" name="car_id" value="7">
+<input type="submit" class="btn btn-warning col-xs-12" onClick="" value="حجز">
+<!--<input type="button" class="btn btn-warning col-xs-12" onClick="myFunction(this.form)" value="حجز">-->
+
+</div>
+</form>
+
+
+
+<form id="frm7" method="GET" action="send_reserv.html" class="col-xs-12 car-item">
+
+<img src="images/cars/sunny-2016.jpg" class="col-xs-12" >
+
+<div class="col-xs-8">
+
+<h3>نيسان صني 2016</h3>
+
+<ul>
+	<li>نوع الوقود: بنزين 91</li>
+	<li>الدرجة: سيدان / متوسطة</li>
+	<li>الأسعار من: 65.00 ريال / يوم</li>
+	<li> الناقل: أوتوماتيك</li>
+	<li>الكيلومترات: 200km</li>
+	<li>رصيد تأميني: 0.00 ريال</li>
+
+</ul>
+
+</div>
+
+<div class="col-xs-4">
+<div class="hr"></div>
+<div class="hr"></div>
+<div class="hr"></div>
+<div class="hr"></div>
+<div class="hr"></div>
+<div class="hr"></div>
+<!--<input type="text" name="car_data" class="car_data" value="">-->
+<input type="hidden" name="car_id" value="6">
+<input type="submit" class="btn btn-warning col-xs-12" onClick="" value="حجز">
+<!--<input type="button" class="btn btn-warning col-xs-12" onClick="myFunction(this.form)" value="حجز">-->
+
+</div>
+</form>
+
+
+
+
+<form id="frm7" method="GET" action="send_reserv.html" class="col-xs-12 car-item">
+
+<img src="images/cars/accent-2016.jpg" class="col-xs-12" >
+
+<div class="col-xs-8">
+
+<h3>أكسنت 2016</h3>
+
+<ul>
+	<li>نوع الوقود: بنزين 91</li>
+	<li>الدرجة: سيدان / فئات</li>
+	<li>الأسعار من: 75.00 ريال / يوم</li>
+	<li> الناقل: أوتوماتيك</li>
+	<li>الكيلومترات: 200km</li>
+	<li>رصيد تأميني: 0.00 ريال</li>
+
+</ul>
+
+</div>
+
+<div class="col-xs-4">
+<div class="hr"></div>
+<div class="hr"></div>
+<div class="hr"></div>
+<div class="hr"></div>
+<div class="hr"></div>
+<div class="hr"></div>
+
+
+
+<!--<input type="text" name="car_data" class="car_data" value="">-->
+<input type="hidden" name="car_id" value="3">
+<input type="submit" class="btn btn-warning col-xs-12" onClick="" value="حجز">
+<!--<input type="button" class="btn btn-warning col-xs-12" onClick="myFunction(this.form)" value="حجز">-->
+
+</div>
+</form>
+
+
+
+<form id="frm7" method="GET" action="send_reserv.html" class="col-xs-12 car-item">
+
+<img src="images/cars/accent-2017.png" class="col-xs-12" >
+
+<div class="col-xs-8">
+
+<h3>أكسنت 2017</h3>
+
+<ul>
+	<li>نوع الوقود: بنزين 91</li>
+	<li>الدرجة: سيدان / فئات</li>
+	<li>الأسعار من: 80.00 ريال / يوم</li>
+	<li> الناقل: أوتوماتيك</li>
+	<li>الكيلومترات: 200km</li>
+	<li>رصيد تأميني: 0.00 ريال</li>
+
+</ul>
+
+</div>
+
+<div class="col-xs-4">
+<div class="hr"></div>
+<div class="hr"></div>
+<div class="hr"></div>
+<div class="hr"></div>
+<div class="hr"></div>
+<div class="hr"></div>
+
+
+<!--<input type="text" name="car_data" class="car_data" value="">-->
+<input type="hidden" name="car_id" value="4">
+<input type="submit" class="btn btn-warning col-xs-12" onClick="" value="حجز">
+<!--<input type="button" class="btn btn-warning col-xs-12" onClick="myFunction(this.form)" value="حجز">-->
+
+</div>
+</form>
+
+
+<form id="frm7" method="GET" action="send_reserv.html" class="col-xs-12 car-item">
+
+<img src="images/cars/cerato-2016.png" class="col-xs-12" >
+
+<div class="col-xs-8">
+
+<h3>كيا سيراتو 2016</h3>
+
+<ul>
+	<li>نوع الوقود: بنزين 91</li>
+	<li>الدرجة: سيدان / فئات</li>
+	<li>الأسعار من: 85.00 ريال / يوم</li>
+	<li> الناقل: أوتوماتيك</li>
+	<li>الكيلومترات: 200km</li>
+	<li>رصيد تأميني: 0.00 ريال</li>
+
+</ul>
+
+</div>
+
+<div class="col-xs-4">
+<div class="hr"></div>
+<div class="hr"></div>
+<div class="hr"></div>
+<div class="hr"></div>
+<div class="hr"></div>
+<div class="hr"></div>
+
+
+<!--<input type="text" name="car_data" class="car_data" value="">-->
+<input type="hidden" name="car_id" value="5">
+<input type="submit" class="btn btn-warning col-xs-12" onClick="" value="حجز">
+<!--<input type="button" class="btn btn-warning col-xs-12" onClick="myFunction(this.form)" value="حجز">-->
+
+</div>
+</form>
+
+
+
+<form id="frm7" method="GET" action="send_reserv.html" class="col-xs-12 car-item">
+
+<img src="images/cars/elantra-2016.jpg" class="col-xs-12" >
+
+<div class="col-xs-8">
+
+<h3>هيونداي النترا 2016</h3>
+
+<ul>
+	<li>نوع الوقود: بنزين 91</li>
+	<li>الدرجة: سيدان / فئات</li>
+	<li>الأسعار من: 85.00 ريال / يوم</li>
+	<li> الناقل: أوتوماتيك</li>
+	<li>الكيلومترات: 200km</li>
+	<li>رصيد تأميني: 0.00 ريال</li>
+
+</ul>
+
+</div>
+
+<div class="col-xs-4">
+<div class="hr"></div>
+<div class="hr"></div>
+<div class="hr"></div>
+<div class="hr"></div>
+<div class="hr"></div>
+<div class="hr"></div>
+
+
+<!--<input type="text" name="car_data" class="car_data" value="">-->
+<input type="hidden" name="car_id" value="2">
+<input type="submit" class="btn btn-warning col-xs-12" onClick="" value="حجز">
+<!--<input type="button" class="btn btn-warning col-xs-12" onClick="myFunction(this.form)" value="حجز">-->
+
+</div>
+</form>
+
+
+
+<form id="frm7" method="GET" action="send_reserv.html" class="col-xs-12 car-item">
+
+<img src="images/cars/elantra-2017.jpg" class="col-xs-12" >
+
+<div class="col-xs-8">
+
+<h3>هيونداي النترا 2017</h3>
+
+<ul>
+	<li>نوع الوقود: بنزين 91</li>
+	<li>الدرجة: سيدان / فئات</li>
+	<li>الأسعار من: 90.00 ريال / يوم</li>
+	<li> الناقل: أوتوماتيك</li>
+	<li>الكيلومترات: 200km</li>
+	<li>رصيد تأميني: 0.00 ريال</li>
+
+</ul>
+
+</div>
+
+<div class="col-xs-4">
+<div class="hr"></div>
+<div class="hr"></div>
+<div class="hr"></div>
+<div class="hr"></div>
+<div class="hr"></div>
+<div class="hr"></div>
+
+
+<!--<input type="text" name="car_data" class="car_data" value="">-->
+<input type="hidden" name="car_id" value="1">
+<input type="submit" class="btn btn-warning col-xs-12" onClick="" value="حجز">
+<!--<input type="button" class="btn btn-warning col-xs-12" onClick="myFunction(this.form)" value="حجز">-->
+
+</div>
+</form>
+
+
+
+
+</div>
+<!-- End of madad body -->
+
+</body>
+</html>
