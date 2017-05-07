@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>مدد السعودية لتأجير السيارات</title>
-<!--<base href="http://madadrental.com/">-->
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-<script type="text/javascript">
+ <meta charset="UTF-8">
+ <title>READ JSON Example (getJSON)</title>
+ <base href="http://msyserp.com/">
+ <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+ <script type="text/javascript">
  //https://phonegappro.com/tutorials/how-to-parse-read-json-using-phonegap-apache-cordova/
  //https://phonegappro.com/tutorials/build-mobile-apps-with-wordpress-using-phonegap-part-1/
  
@@ -19,9 +19,17 @@
  
  */
  
- $(document).ready(function() { 
+ $(document).ready(function() { alert("Alert Test");
+ //$.getJSON("http://phonegappro.esy.es/test/json.php",function(result){
+ //$.getJSON("https://hasangad.com/wp-json/wp/v2/posts/1820",function(result){ 
  $.getJSON("http://msyserp.com/api/?p=47&json=1",function(result){ 
+ //$.getJSON("http://msyserp.com/web-service-api/?id=1&admin=mallam",function(result){ 
+ //alert("In Json");
  $.each(result, function(i , field){
+	  //alert("Alert each");
+ //$("#output").append("Title: "+ field.title + " duration: "+field.duration +" Price:"+field.price+"<br/>");
+ //$("#output").append("<td>"+ field[i].id + "</td><td>"+field[i].title +"</td><td>"+field[i].type +"</td>");
+ //$("#output").append("<td>"+ field.clientname + "</td><td>"+field.title +"</td><td>"+field.type +"</td>");
  $("#output").append("<tr><td>"+ field.id + "</td><td>"+ field.title + "</td></tr>");
  });
  });
@@ -41,95 +49,29 @@
  });*/
  });
  $(document).ready(function() {
-   /*var url="http://msyserp.com/?json=get_recent_posts";
+   var url="http://msyserp.com/?json=get_recent_posts";
    $.getJSON(url,function(result){
     $.each(result.posts, function(i, field){
        var id=field.id;
        $("#listview").append("<tr><td><h2>"+id+"<h2></td><td>"+field.title+"</td><td>"+field.type+"</td><tr>");
     });
-   });*/
-  
-   
+   });
  });
- 
- function toggle_sidebar()
-        {
-			
-            var sidebar = document.getElementById("sidebar");
-            
-            console.log(sidebar.style.left);
-            
-            if(sidebar.style.right == "-35%")
-            {
-                sidebar.style.right = "0%";
-            }
-            else
-            {
-                sidebar.style.right = "-35%";
-            }
-        }
  </script>
-<link rel='stylesheet' id='bootstrap.min-css'  href='bs/css/bootstrap.min.css' type='text/css' media='all' />
-<link rel='stylesheet' id='bootstrap.min-css-rtl'  href='bs/css/bootstrap-rtl.min.css' type='text/css' media='all' />
-<link rel='stylesheet' id='bootstrap.min-css-controllers'  href='bs/css/controllers.css' type='text/css' media='all' />
-<link rel='stylesheet' id='css-style' href="css/fa/css/font-awesome.min.css" type='text/css' media='all' />
-<link rel='stylesheet' id='css-style'  href='css/style.css' type='text/css' media='all' />
+ <style>table, th, td {
+   border: 1px solid black;
+}</style>
 </head>
 <body>
-
-  <img class="toggle" src="images/icon-mobile.png" onclick="toggle_sidebar()" style="position: fixed; left: 10px; top: 10px" />
-        
-<div id="sidebar" style="position: fixed; display: inline-block; top: 0px; height: 100%; width: 35%; right: -35%; transition: all 0.5s ease-in-out;">
-<ul class="container no-padding">
-		<li><a href="index.html">الرئيسية</a></li>
-	<li><a href="about.html">عن مدد السعودية</a></li>
-	<li><a href="cars.html">السيارات</a></li>
-	<!--<li><a href="reserve.html">حجز</a></li>
-	<li><a href="contact.html">التواصل</a></li>-->
-</ul>
-</div>
-
-<a href="index.html" class="container-fluid no-padding"><img src="images/logo-2.jpg" alt="" title="" width="567" height="256" class="logo"></a>
-
-<div class="madad_body container"> 
-
-
-<div class="hr"></div>
-<div class="hr"></div>
-
-<div class="home-icons">
-<a href="about.html" class="col-xs-6">
-<span class="col-xs-12">
-<i class="fa fa-info"></i>
-<p>عن الشركة</p>
-</span></a>
-
-<a href="cars.html" class="col-xs-6">
-<span class="col-xs-12">
-<i class="fa fa-car"></i>
-<p>السيارات</p>
-</span>
-</a>
-
-<div class="hr"></div>
-<div class="hr"></div>
-<!--<a href="reserve.html" class="col-xs-6">
-<span class="col-xs-12">
-<i class="fa fa-ticket"></i>
-<p>حجز</p>
-</span>
-</a>
-
-<a href="contact.html" class="col-xs-6">
-<span class="col-xs-12">
-<i class="fa fa-envelope"></i>
-<p>التواصل</p>
-</span>
-</a>-->
-</div>
-  
-</div>
-<!-- End of madad body -->
+<h1>HasanGad.com Blog</h1>
+ <table id="output">
+ <tr><td>ID</td><td>Title</td><td>Type</td></tr>
+ </table>
+ 
+  <table id="listview">
+ <tr><td>ID</td><td>Title</td><td>Type</td></tr>
+ </table>
+ 
 
 </body>
 </html>
